@@ -96,6 +96,9 @@ You can use a custom authorizer class by specifying a configure block in an init
 ```ruby
 JSONAPI::Authorization.configure do |config|
   config.authorizer = MyCustomAuthorizer
+  config.pundit_user = :user
+  # or
+  config.pundit_user = ->(context){ context[:current_user] }
 end
 ```
 
